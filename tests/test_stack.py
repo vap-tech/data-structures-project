@@ -18,6 +18,10 @@ class TestStack(unittest.TestCase):
         with self.assertRaises(AttributeError):
             print(stack.top.next_node.next_node.next_node.data)
 
+        data = stack.pop()
+        self.assertEqual(data, 'data3')
+        self.assertEqual(stack.top.data, 'data2')
+
 
 if __name__ == '__main__':
     unittest.main()
