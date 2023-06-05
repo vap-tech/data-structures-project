@@ -21,7 +21,13 @@ class TestStack(unittest.TestCase):
         data = stack.pop()
         self.assertEqual(data, 'data3')
         self.assertEqual(stack.top.data, 'data2')
+        stack.pop()
+        self.assertEqual(stack.pop(), 'data1')
+        self.assertEqual(stack.pop(), None)
 
-
-if __name__ == '__main__':
-    unittest.main()
+    def test_stack3(self):
+        stack = Stack()
+        stack.push('data1')
+        stack.push('data2')
+        stack.push('data3')
+        self.assertEqual(str(stack), 'data3\ndata2\ndata1')
