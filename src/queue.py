@@ -41,7 +41,11 @@ class Queue:
         """
         if self.head:
             data = self.head.data
-            self.head = self.head.next_node
+            if self.head.next_node:
+                self.head = self.head.next_node
+            else:
+                self.head = None
+                self.tail = None
             return data
 
     def __str__(self):
